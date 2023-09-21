@@ -13,13 +13,12 @@ from h2o.automl import H2OAutoML
 
 def check_java():
     try:
-        print(os.environ['JAVA_HOME'])
+        print(os.environ['H2O_JAVA_HOME'])
     except:
         print ('Installing Java...')
         import jdk
         jdk.install('17', path='/usr/local/jdk')
-        os.environ['JAVA_HOME'] = '/usr/local/jdk/jdk-17.0.7+7'
-
+        os.environ['H2O_JAVA_HOME'] = '/usr/local/jdk/jdk-17.0.8.1+1'
 
 def train(context: ModelContext, **kwargs):
     aoa_create_context()
