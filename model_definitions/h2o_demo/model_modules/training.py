@@ -47,10 +47,15 @@ def train(context: ModelContext, **kwargs):
         model = aml.leader
 
     print("Finished training")
-
+    
     # export model artefacts
+    print("Test 1")
     mojo = model.download_mojo(path=context.artifact_output_path, get_genmodel_jar=True)
+    print("Printing mojo")
     print(mojo)
+    print(os.path.abspath(os.getcwd()))
+    print(context.artifact_output_path)
+    
     new_mojo = os.path.join(os.path.abspath(os.getcwd()), context.artifact_output_path, "model.h2o")
     print(new_mojo)
     if os.path.isfile(new_mojo):
