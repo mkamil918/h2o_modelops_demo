@@ -40,7 +40,6 @@ def score(context: ModelContext, **kwargs):
     cols[target_name] = predictions_df['prediction']
     predictions_df = predictions_df.assign(**cols)
     print(predictions_df.head())
-    predictions_df = predictions_df.to_pandas()
     predictions_df = predictions_df[["job_id", entity_key, target_name, "json_report"]]
 
     copy_to_sql(df=predictions_df,
